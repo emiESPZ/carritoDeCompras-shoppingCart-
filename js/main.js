@@ -103,25 +103,28 @@ function crearLista(e){
 //-----------------------------------CREAR CARRITO JS------------------------------------//  
  
 function agregarAlCarrito (id){
-  let agregarPizza = stockPizzas.find(item => item.id == id)
-  let agregarEmpanada = stockEmpanadas.find(item => item.id == id)
-  let agregarPostre = stockPostres.find(item => item.id == id)
+  let agregarPizza = stockPizzas.find(item => item.id == id);
+  let agregarEmpanada = stockEmpanadas.find(item => item.id == id);
+  let agregarPostre = stockPostres.find(item => item.id == id);
 
-  let productoEnCarrito = document.createElement('div')
-  productoEnCarrito.className="productoEnCarrito"
-  productoEnCarrito.innerHTML =`
+
+
+  let div = document.createElement('div');
+  div.className="productoEnCarrito";
+  div.innerHTML =`
   <p>${agregarPizza.nombre}</p>
   <p>Precio: $${agregarPizza.precio}</p>
-  <button class="boton-eliminar"><i class=fas fa-trash-alt"></i></button>
+  <button class="boton-eliminar"><i class="fa-solid fa-rectangle-xmark"></i>
   <p>${agregarEmpanada.nombre}</p>
   <p>Precio: $${agregarPizza.precio}</p>
-  <button class="boton-eliminar"><i class=fas fa-trash-alt"></i></button>
+  <button class="boton-eliminar"><i class="fa-solid fa-rectangle-xmark"></i>
   <p>${agregarPostre.nombre}</p>
   <p>Precio: $${agregarPizza.precio}</p>
-  <button class="boton-eliminar"><i class=fas fa-trash-alt"></i></button>
+  <button class="boton-eliminar"><i class="fa-solid fa-rectangle-xmark"></i>
   
   `
-  contenedorCarrito.appendChild(productoEnCarrito)
+  
+  contenedorCarrito.appendChild(div);
 }
 
 
@@ -131,7 +134,7 @@ function agregarAlCarrito (id){
 
 
 
-//---------------------CONFIRMAR PEDIDO-----------------------------------------//
+/* //---------------------CONFIRMAR PEDIDO-----------------------------------------//
 function confirmarPedido(){
   let pregunta = prompt("Queres confirmar tu pedido?", "RESPONDE: Si o No.");
  
@@ -145,7 +148,7 @@ function confirmarPedido(){
 }
 
 let botonCompra= document.getElementById("botonCompra");
-botonCompra.addEventListener("click", confirmarPedido);
+botonCompra.addEventListener("click", confirmarPedido); */
 
 
 
