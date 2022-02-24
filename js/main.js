@@ -1,12 +1,14 @@
 
-import { stockPizzas } from "./objects.js"; 
-import { stockEmpanadas } from "./objects.js"; 
-import { stockPostres } from "./objects.js"; 
-
-let productosPizza = document.getElementById('Container');
-let productosEmpanada = document.getElementById('Container');
-let productosPostre = document.getElementById('Container');
-let contenedorCarrito = document.getElementById('carrito');
+import { stockProductos } from "./objects.js"; 
+/* import { stockEmpanadas } from "./objects.js"; 
+import { stockPostres } from "./objects.js";  */
+let carritoDeCompras=[];
+let productos= document.getElementById('Container');
+let precioTotal = document.getElementById('precioTotal');
+/* let productosEmpanada = document.getElementById('Container');
+let productosPostre = document.getElementById('Container');*/
+let contenedorCarrito = document.getElementById('carrito'); 
+let contadorCarrito = document.getElementById('contadorCarrito'); 
 
 
 
@@ -16,120 +18,56 @@ let contenedorCarrito = document.getElementById('carrito');
 
 
 //----------PIZZAS---------------//
-stockPizzas.forEach(producto =>{ 
+stockProductos.forEach(producto =>{ 
  
  const div = document.createElement('div');
  div.className = 'mix category-1 menu-restaurant';
  div.setAttribute('data-myorder', '2');
- div.innerHTML = `
- <span class="clearfix"><a id="linkAgregar${producto.id}" class="menu-title"  href="#" data-meal-img="assets/img/restaurant/rib.jpg">${producto.nombre}</a>
+ div.innerHTML = `<span class="clearfix"><a id="linkAgregar${producto.id}" class="menu-title"  href="#" data-meal-img="assets/img/restaurant/rib.jpg">${producto.nombre}</a>
  <span style="left: 166px; right: 44px;" class="menu-line"></span>
 <span class="menu-price">$${producto.precio}</span>
 </span>
-<span class="menu-subtitle">${producto.ingredientes}</span>
- `  
-productosPizza.appendChild(div)
+<span class="menu-subtitle">${producto.ingredientes}</span>`  
+
+ productos.appendChild(div)
 let agregarLink = document.getElementById(`linkAgregar${producto.id}`);
-agregarLink.addEventListener('click', ()=> { agregarAlCarrito(producto.id)})
+agregarLink.addEventListener('click', (e)=> { agregarAlCarrito(producto.id); e.preventDefault(); actualizarCarrito()})
 }
   );
-
-
-//----------EMPANADAS---------------//
-stockEmpanadas.forEach(producto =>{ 
- 
- const div = document.createElement('div')
- div.className = 'mix category-2 menu-restaurant';
- div.setAttribute('data-myorder', '2');
- div.innerHTML = `
- <span class="clearfix"><a id="linkAgregar${producto.id}" class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">${producto.nombre}</a>
- <span style="left: 166px; right: 44px;" class="menu-line"></span>
-<span class="menu-price">$${producto.precio}</span>
-</span>
-<span class="menu-subtitle">${producto.ingredientes}</span>
- `  
-productosEmpanada.appendChild(div)
-let agregarLink = document.getElementById(`linkAgregar${producto.id}`);
-agregarLink.addEventListener('click', ()=> { agregarAlCarrito(producto.id)})
-}
-  );
-
-
-
-//----------POSTRES---------------//
-stockPostres.forEach(producto =>{ 
- 
- const div = document.createElement('div')
- div.className = 'mix category-3 menu-restaurant';
- div.setAttribute('data-myorder', '2');
- div.innerHTML = `
- <span class="clearfix"><a id="linkAgregar${producto.id}" class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">${producto.nombre}</a>
- <span style="left: 166px; right: 44px;" class="menu-line"></span>
-<span class="menu-price">$${producto.precio}</span>
-</span>
-<span class="menu-subtitle">${producto.ingredientes}</span>
- `  
-productosPostre.appendChild(div)
-
-
-//----------LINK PARA AGREGAR AL CARRITO-----------------------------//
-let agregarLink = document.getElementById(`linkAgregar${producto.id}`);
-agregarLink.addEventListener('click', ()=> { 
-  agregarAlCarrito(producto.id)})
-}
-  );
-
-
-
-//-----------------------------------CREAR LISTA ABAJO (CARRITO HTML)------------------------------------//  
-const elegirProducto = document.querySelectorAll(".menu-title");
-
-for (let i = 0; i < elegirProducto.length; i++) {
-  elegirProducto[i].addEventListener("click", crearLista );
-  
-} 
-
-function crearLista(e){
-  e.preventDefault();
-  if (e.target.classList.contains("menu-title")){
-    let productoElegido = document.createElement('li');
-    productoElegido.textContent = e.target.textContent
-    let lista = document.getElementById("lista")
-    lista.appendChild(productoElegido);
-  }
-}
 
 
 //-----------------------------------CREAR CARRITO JS------------------------------------//  
  
 function agregarAlCarrito (id){
-  let agregarPizza = stockPizzas.find(item => item.id == id);
-  let agregarEmpanada = stockEmpanadas.find(item => item.id == id);
-  let agregarPostre = stockPostres.find(item => item.id == id);
+  
+  let agregarProducto = stockProductos.find(item => item.id === id);
 
 
+carritoDeCompras.push(agregarProducto)
 
   let div = document.createElement('div');
   div.className="productoEnCarrito";
   div.innerHTML =`
-  <p>${agregarPizza.nombre}</p>
-  <p>Precio: $${agregarPizza.precio}</p>
-  <button class="boton-eliminar"><i class="fa-solid fa-rectangle-xmark"></i>
-  <p>${agregarEmpanada.nombre}</p>
-  <p>Precio: $${agregarPizza.precio}</p>
-  <button class="boton-eliminar"><i class="fa-solid fa-rectangle-xmark"></i>
-  <p>${agregarPostre.nombre}</p>
-  <p>Precio: $${agregarPizza.precio}</p>
-  <button class="boton-eliminar"><i class="fa-solid fa-rectangle-xmark"></i>
-  
-  `
+  <p style="display:inline"><b>${agregarProducto.nombre}</b></p>
+  <p>Cantidad: ${agregarProducto.cantidad}</p>
+  <p style="display:inline">Precio: $${agregarProducto.precio}</p><button id="btnEliminar${agregarProducto.id}" style="border:none; background:none;" class="boton-eliminar"><img style="width:25px" src="../img/icons8-basura.svg"></button>
+    `
   
   contenedorCarrito.appendChild(div);
+  let btnEliminar= document.getElementById(`btnEliminar${agregarProducto.id}`)
+  btnEliminar.addEventListener('click', ()=>{
+    btnEliminar.parentElement.remove()
+    carritoDeCompras = carritoDeCompras.filter(elemento => elemento.id != agregarProducto.id)
+  })
 }
 
 
 
+function actualizarCarrito(){
 
+contadorCarrito.innerText = carritoDeCompras.length
+precioTotal.innerText = carritoDeCompras.reduce((acc, el)=> acc + (el.precio * el.cantidad),0);
+}
 
 
 
