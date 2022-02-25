@@ -2,6 +2,7 @@
 import { stockProductos } from "./objects.js"; 
 /* import { stockEmpanadas } from "./objects.js"; 
 import { stockPostres } from "./objects.js";  */
+let carritoStorage = [];
 let carritoDeCompras=[];
 let productos= document.getElementById('Container');
 let precioTotal = document.getElementById('precioTotal');
@@ -18,6 +19,12 @@ let contadorCarrito = document.getElementById('contadorCarrito');
 
 
 //----------PIZZAS---------------//
+if (localStorage.getItem("carrito")){
+  carritoStorage = JSON.parse(localStorage.getItem("carrito"))
+  carritoStorage.map((producto) =>{
+    
+  })
+}
 stockProductos.forEach(producto =>{ 
  
  const div = document.createElement('div');
@@ -39,6 +46,13 @@ agregarLink.addEventListener('click', (e)=> { agregarAlCarrito(producto.id); e.p
 //-----------------------------------CREAR CARRITO JS------------------------------------//  
  
 function agregarAlCarrito (id){
+
+  document.addEventListener("DOMContentLoaded", (e) => {
+    if (localStorage.getItem("carrito")) {
+      carritoDeCompras = JSON.parse(localStorage.getItem("carrito"))
+      actualizarCarrito(carritoDeCompras);
+    }
+  })
   
   let agregarProducto = stockProductos.find(item => item.id === id);
 
@@ -66,9 +80,9 @@ carritoDeCompras.push(agregarProducto)
 
 function actualizarCarrito(){
 
-contadorCarrito.innerText = carritoDeCompras.reduce((acc,el)=>acc + el.cantidad,0)
+contadorCarrito.innerText = carritoDeCompras.reduce((acc,el)=>acc + el.cantidad,0);
 precioTotal.innerText = carritoDeCompras.reduce((acc, el)=> acc + (el.precio * el.cantidad),0);
-
+localStorage.setItem("carrito", JSON.stringify(carritoDeCompras));
 }
 
 
