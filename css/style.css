@@ -18,6 +18,14 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
+.precioTotal{
+    margin-top:4rem;
+    border: 2px solid black;
+    display:inline;
+    padding:0.6rem;
+}
+
+#contadorCarrito{color:white;}
 table {
 	border-collapse: collapse;
 	border-spacing: 0;

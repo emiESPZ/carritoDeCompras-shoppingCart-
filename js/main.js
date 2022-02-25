@@ -50,7 +50,7 @@ carritoDeCompras.push(agregarProducto)
   div.innerHTML =`
   <p style="display:inline"><b>${agregarProducto.nombre}</b></p>
   <p>Cantidad: ${agregarProducto.cantidad}</p>
-  <p style="display:inline">Precio: $${agregarProducto.precio}</p><button id="btnEliminar${agregarProducto.id}" style="border:none; background:none;" class="boton-eliminar"><img style="width:25px" src="../img/icons8-basura.svg"></button>
+  <p style="display:inline">Precio: $${agregarProducto.precio}</p><button id="btnEliminar${agregarProducto.id}" style="border:none; background:none;" class="boton-eliminar"><img style="width:25px" src="../img/icons8-basura.svg"></button></br></br>
     `
   
   contenedorCarrito.appendChild(div);
@@ -58,6 +58,7 @@ carritoDeCompras.push(agregarProducto)
   btnEliminar.addEventListener('click', ()=>{
     btnEliminar.parentElement.remove()
     carritoDeCompras = carritoDeCompras.filter(elemento => elemento.id != agregarProducto.id)
+    actualizarCarrito()
   })
 }
 
@@ -65,8 +66,9 @@ carritoDeCompras.push(agregarProducto)
 
 function actualizarCarrito(){
 
-contadorCarrito.innerText = carritoDeCompras.length
+contadorCarrito.innerText = carritoDeCompras.reduce((acc,el)=>acc + el.cantidad,0)
 precioTotal.innerText = carritoDeCompras.reduce((acc, el)=> acc + (el.precio * el.cantidad),0);
+
 }
 
 
