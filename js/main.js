@@ -1,13 +1,12 @@
 
 import { stockProductos } from "./objects.js"; 
-/* import { stockEmpanadas } from "./objects.js"; 
-import { stockPostres } from "./objects.js";  */
+
+
+
 let carritoStorage = [];
 let carritoDeCompras=[];
 let productos= document.getElementById('Container');
 let precioTotal = document.getElementById('precioTotal');
-/* let productosEmpanada = document.getElementById('Container');
-let productosPostre = document.getElementById('Container');*/
 let contenedorCarrito = document.getElementById('carrito'); 
 let contadorCarrito = document.getElementById('contadorCarrito'); 
 
@@ -36,7 +35,8 @@ stockProductos.forEach(producto =>{
 </span>
 <span class="menu-subtitle">${producto.ingredientes}</span>`  
 
- productos.appendChild(div)
+
+productos.appendChild(div)
 let agregarLink = document.getElementById(`linkAgregar${producto.id}`);
 agregarLink.addEventListener('click', (e)=> { agregarAlCarrito(producto.id); e.preventDefault(); actualizarCarrito()})
 }
@@ -88,21 +88,22 @@ localStorage.setItem("carrito", JSON.stringify(carritoDeCompras));
 
 
 
-/* //---------------------CONFIRMAR PEDIDO-----------------------------------------//
+//---------------------CONFIRMAR PEDIDO-----------------------------------------//
 function confirmarPedido(){
   let pregunta = prompt("Queres confirmar tu pedido?", "RESPONDE: Si o No.");
  
  if (pregunta.toUpperCase() == "NO"){
     alert (" REALIZA TU PEDIDO NUEVAMENTE.");
-    document.getElementById("lista").innerHTML="";
+    document.getElementById("carrito").innerHTML="";
+    document.getElementById("precioTotal").innerHTML="";
   }else if (pregunta.toUpperCase() == "SI"){
-    alert (`TU PEDIDO ES ${document.getElementById("lista").textContent}`);
+    alert (`TU PEDIDO ES ${contenedorCarrito.textContent}`);
   }else (alert ("Los datos ingresados son incorrectos, realiza tu pedido nuevamente"));
 
 }
 
 let botonCompra= document.getElementById("botonCompra");
-botonCompra.addEventListener("click", confirmarPedido); */
+botonCompra.addEventListener("click", confirmarPedido);
 
 
 
