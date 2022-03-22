@@ -1,0 +1,119 @@
+
+
+[
+  {"id" : 1,
+  "category" : -1,
+  "nombre" : "Pizza de Muzzarella Grande",
+  "precio" : 900,
+  "ingredientes" : "Salsa de tomate, muzzarella (8 porciones)",
+  "cantidad" : 1
+  },
+  {"id" : 2,
+  "category" : -1,
+  "nombre" : "Pizza de Muzzarella Chica",
+  "precio": 750,
+  "ingredientes" : "Salsa de tomate, muzzarella (8 porciones - chicas)",
+  "cantidad" : 1  
+  },
+  {"id" : 3,
+  "category" : -1,
+  "nombre" : "Pizza de Verdura Grande",
+  "precio" : 1100,
+ "ingredientes" : "Espinaca y salsa blanca (8 porciones)",
+ "cantidad" : 1
+  },
+  {"id" : 4,
+  "category" : -1,
+  "nombre" : "Pizza de Verdura Chica",
+  "precio" : 950,
+ "ingredientes" : "Espinaca y salsa blanca (8 porciones)",
+ "cantidad" : 1 
+  },
+  {"id" : 5,
+  "category" : -1,
+  "nombre" : "Fugazzeta Rellena",
+  "precio" : 900,
+  "cantidad" : 1
+  },
+  {"id" : 6,
+  "category" : -1,  
+  "nombre" : "Pizza Napolitana Grande",
+  "precio" : 900,
+  "ingredientes" : "Salsa de tomate, muzzarella, rodajas de tomate, orégano, aceitunas verdes (8 porciones)",
+  "cantidad" : 1
+  },
+  {"id" : 7,
+  "category" : -1,   
+  "nombre" : "Pizza Napolitana Chica",
+  "precio" : 750,
+  "ingredientes" : "Salsa de tomate, muzzarella, rodajas de tomate, orégano, aceitunas verdes (8 porciones)",
+  "cantidad" : 1
+  },
+
+  {
+    "id" : 8,
+    "category" : -2,
+    "nombre" : "Empanada de Carne Picante",
+    "ingredientes" : "Carne cortada a cuchillo, cebolla, aji",
+    "precio" : 90,
+    "cantidad" : 1
+  }, 
+  {
+    "id" : 9,
+    "category" : -2,
+    "nombre" : "Empanada de Humita",
+    "ingredientes" : "Choclo, queso",
+    "precio" : 90,
+    "cantidad" : 1
+  }, 
+  {
+    "id" : 10,
+    "category" : -2,
+    "nombre" : "Empanada de Verdura",
+    "ingredientes" : "Espinaca, salsa blanca",
+    "precio" : 90,
+    "cantidad" : 1
+  }, 
+  {
+    "id" : 11,
+    "category" : -2,
+    "nombre" : "Empanada Caprese",
+    "ingredientes" : "Muzzarella, tomate, albahaca",
+    "precio" : 90,
+    "cantidad" : 1
+  },
+
+  {
+    "id" : 12,
+    "category" : -3,
+    "nombre" : "Flan",
+    "precio" : 85,
+    "cantidad" : 1 
+  },
+  {
+    "id" : 13,
+    "category" : -3,
+    "nombre" : "Helado",
+    "ingredientes" : "Chocolate, Frutilla, Granizado, Sambayon",
+    "precio" : 85,
+    "cantidad" : 1
+  },
+  {
+    "id" : 14,
+    "category" : -3,
+    "nombre" : "Chocotorta",
+    "precio" : 85,
+    "cantidad" : 1
+  },
+  {
+    "id" : 15,
+    "category" : -3,
+    "nombre" : "Lemon Pie",
+    "precio" : 85,
+    "cantidad" : 1
+  }
+
+]
+
+
+

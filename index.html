@@ -27,6 +27,7 @@
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
 </head>
 
@@ -50,9 +51,9 @@
       <div class="container">
         <div class="row">
           <div class="inner text-center">
-            <h1 class="logo-name">ProOnliPc</h1>
-            <h2>Alimentos Para adaptarse a su estilo de vida & salud.</h2>
-            <p>¡Especializado en cocina Peruana!!</p>
+            <h1 class="logo-name">Pizzería</h1>
+            <h2>La mejor pizza de Buenos Aires</h2>
+            <p>¡Creadores de la Fugazzeta Rellena!!</p>
           </div>
         </div>
       </div>
@@ -64,22 +65,21 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center marb-35">
-          <h1 class="header-h">Delicioso Viaje</h1>
-          <p class="header-p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-            <br>nibh euismod tincidunt ut laoreet dolore magna aliquam. </p>
+          <h1 class="header-h">Nuestra Especialidad</h1>
+          <p class="header-p">Desde el año 1979 cocinando la mejor Fugazzeta Rellena del condado</p>
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-10">
           <div class="col-md-6 col-sm-6">
             <div class="about-info">
-              <h2 class="heading">vel illum qui dolorem eum</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero impedit inventore culpa vero accusamus in nostrum dignissimos modi, molestiae. Autem iusto esse necessitatibus ex corporis earum quaerat voluptates quibusdam dicta!</p>
+              <h2 class="heading">Qué la hace tan especial?</h2>
+              <p>Se trata de una pizza rellena de mozzarella. Sobre la masa se pone la mozzarella, se cubre con una segunda capa de masa como si fuese una empanada y, sobre ésta segunda capa, se coloca la cebolla y un poco de parmesano.</p>
               <div class="details-list">
                 <ul>
-                  <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                  <li><i class="fa fa-check"></i>Quisque finibus eu lorem quis elementum</li>
-                  <li><i class="fa fa-check"></i>Vivamus accumsan porttitor justo sed </li>
-                  <li><i class="fa fa-check"></i>Curabitur at massa id tortor fermentum luctus</li>
+                  <li><i class="fa fa-check"></i>Cebolla</li>
+                  <li><i class="fa fa-check"></i>Muzzarella</li>
+                  <li><i class="fa fa-check"></i>Ingrediente Secreto</li>
+                  <li><i class="fa fa-check"></i>Con el particular toque de Queso Parmesano</li>
                 </ul>
               </div>
             </div>
@@ -99,8 +99,8 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 text-center" style="padding:60px;">
-            <h1 class="header-h">Up Coming events</h1>
-            <p class="header-p">Decorations 100% complete here</p>
+            <h1 class="header-h">No dejes de probar nuestras Empanadas</h1>
+            <p class="header-p">100% Salteñas</p>
           </div>
           <div class="col-md-12" style="padding-bottom:60px;">
             <div class="item active left">
@@ -109,16 +109,16 @@
               </div>
               <div class="col-md-6 col-sm-6 details-text">
                 <div class="content-holder">
-                  <h2>Joyful party</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore eos suscipit earum voluptas aliquam recusandae, quae iure adipisci, inventore quia, quos delectus quaerat praesentium id expedita nihil illo accusantium, tempora.</p>
+                  <h2>Promoción por docena</h2>
+                  <p>Comprando dos docenas pagas el precio de una sola! Aprovechá y no dejes pasar esta oportunidad.</p>
                   <address>
-                              <strong>Place: </strong>
-                              1612 Collins Str, Victoria 8007
+                              <strong>Sabores disponibles: </strong>
+                              Carne Picante, Humita, Verdura
                               <br>
-                              <strong>Time: </strong>
-                              07:30pm
+                              <strong>Válida hasta: </strong>
+                              25/07
                             </address>
-                  <a class="btn btn-imfo btn-read-more" href="events-details.html">Read more</a>
+                  <a class="btn btn-imfo btn-read-more" href="#menuPedir">Hacé tu pedido</a>
                 </div>
               </div>
             </div>
@@ -133,9 +133,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center marb-35">
-          <h1 class="header-h">Menu List</h1>
-          <p class="header-p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-            <br>nibh euismod tincidunt ut laoreet dolore magna aliquam. </p>
+          <h1 id= "menuPedir" class="header-h">Menú</h1>
+          <b><p class="header-p">PARA REALIZAR TU PEDIDO, HACÉ CLICK EN LA CATEGORÍA Y LUEGO HACE CLICK EN CADA PRODUCTO QUE QUIERAS COMPRAR</p></b>
         </div>
         <div class="col-md-12  text-center gallery-trigger">
           <ul>
@@ -152,18 +151,57 @@
     <div id="pedido" class="pedido text-center">
       <h2>PEDIDO:</h2>
       <ul class="text-center" id="lista">
-    
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Item</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Acción</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody id="items"></tbody>
+          <tfoot>
+            <tr id="footer">
+              <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+            </tr>
+          </tfoot>
+        </table>
+        <!-- <h4>Cards</h4> -->
+        <div class="row" id="cards"></div>
+      </div>
       </ul>
     </div>
-    <div id="carrito" class="text-center"></div>
-    <div class="text-center">
-      <div id="contadorCarrito"></div>
-      <p class="precioTotal">Precio Total: $<span id="precioTotal"></span></p>
-      
-      <button id="botonCompra" class="botonCompra" name="botonCompra" type="submit">COMPRAR</button>
-    
-    
-    </div>
+
+    <!-- TEMPLATE CARRITO DE COMPRAS -->
+    <template id="template-footer">
+      <th scope="row" colspan="2">Total productos</th>
+      <td>10</td>
+      <td>
+          <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+              vaciar todo
+          </button>
+      </td>
+      <td class="font-weight-bold">$ <span>5000</span></td>
+  </template>
+  
+  <template id="template-carrito">
+    <tr>
+      <th scope="row">id</th>
+      <td>Café</td>
+      <td>1</td>
+      <td>
+          <button class="btn btn-info btn-sm">
+              +
+          </button>
+          <button class="btn btn-danger btn-sm">
+              -
+          </button>
+      </td>
+      <td>$ <span>500</span></td>
+    </tr>
+  </template>
   </section>
   <!--/ menu -->
   <!-- contact -->
@@ -289,7 +327,6 @@
   <script src="js/jquery.easing.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery.mixitup.min.js"></script>
-  <script src="js/objects.js" type="module"></script>
   <script src="js/main.js" type="module"></script>
   <script src="js/custom.js"></script>
   <script src="contactform/contactform.js"></script>
